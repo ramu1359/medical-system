@@ -1,82 +1,520 @@
-/* HOME PAGE */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= HOME PAGE ================= */
+
 .home {
-  height: 100vh;
   width: 100%;
-  background-image: url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.home-content {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 50px;
-  border-radius: 15px;
+/* Hero Section */
+.hero {
   text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
   color: white;
 }
 
-.btn {
-  margin-top: 20px;
-  padding: 10px 25px;
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 10px 20px;
+  margin: 10px;
   border: none;
-  background: #00c6ff;
-  color: white;
-  border-radius: 8px;
   cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-/* LOGIN PAGE */
+.primary-btn {
+  background: white;
+  color: #007bff;
+}
+
+.primary-btn:hover {
+  background: #f0f0f0;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.secondary-btn:hover {
+  background: white;
+  color: #007bff;
+}
+
+/* Features Section */
+.features,
+.roles,
+.why-us {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.features h2,
+.roles h2,
+.why-us h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.feature-cards,
+.role-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card,
+.role-card {
+  background: #f4f7fa;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover,
+.role-card:hover {
+  transform: translateY(-5px);
+}
+
+.why-us ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.why-us li {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+
+/* ================= LOGIN PAGE ================= */
+
 .login {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  background: #f4f7fa;
 }
 
 .login-box {
   background: white;
-  padding: 40px;
-  width: 320px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.login-box select,
-.login-box button {
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-box input,
+.login-box select {
   width: 100%;
   padding: 10px;
-  margin-top: 15px;
-  border-radius: 8px;
-  border: none;
+  margin: 10px 0;
 }
 
-.login-box button {
-  background: #667eea;
+.login-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.login-toggle button {
+  width: 48%;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  background: #ddd;
+}
+
+.login-toggle .active {
+  background: #007bff;
   color: white;
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+.otp-btn {
+  width: 100%;
+  padding: 8px;
+  background: #28a745;
+  color: white;
+  border: none;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.otp-btn:hover {
+  background: #1e7e34;
+}
+
+.forgot {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #007bff;
+  cursor: pointer;
+}
+/* ================= DOCTOR DASHBOARD ================= */
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
   cursor: pointer;
 }
 
-/* DASHBOARD */
-.dashboard {
-  padding: 40px;
+.sidebar ul li:hover {
+  color: #38bdf8;
 }
 
-.top {
+.logout-btn {
+  margin-top: 30px;
+  padding: 8px;
+  width: 100%;
+  background: #ef4444;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* Main Dashboard */
+.dashboard-main {
+  flex: 1;
+  padding: 30px;
+  background: #f1f5f9;
+}
+
+.dashboard-main h1 {
+  margin-bottom: 25px;
+}
+
+/* Cards */
+.card-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.dash-card {
+  background: white;
+  padding: 20px;
+  flex: 1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.dash-card h3 {
+  margin-bottom: 10px;
+}
+
+.dash-card p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Table */
+.table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table-section h2 {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background: #e2e8f0;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  background: #22c55e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.action-btn:hover {
+  background: #16a34a;
+}
+/* ================= PATIENT DASHBOARD ================= */
+
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 15px;
 }
 
-.top button {
-  background: red;
-  color: white;
-  border: none;
+.primary-btn {
   padding: 8px 15px;
-  border-radius: 5px;
+  background: #3b82f6;
+  border: none;
+  color: white;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.primary-btn:hover {
+  background: #2563eb;
+}
+
+.download-btn {
+  padding: 5px 10px;
+  background: #f59e0b;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background: #d97706;
+}
+/* ================= PHARMACIST DASHBOARD ================= */
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #0f172a;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 25px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  color: #38bdf8;
+}
+
+.logout-btn {
+  margin-top: 30px;
+  padding: 8px;
+  width: 100%;
+  background: #ef4444;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 30px;
+  background: #f1f5f9;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.dash-card {
+  background: white;
+  padding: 20px;
+  flex: 1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.dash-card h3 {
+  margin-bottom: 10px;
+}
+
+.dash-card p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.table-section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background: #e2e8f0;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  background: #22c55e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.action-btn:hover {
+  background: #16a34a;
+}
+/* ================= ADMIN DASHBOARD ================= */
+
+.admin-sidebar {
+  background: #111827;
+}
+
+.approve-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  background: #22c55e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.approve-btn:hover {
+  background: #16a34a;
+}
+
+.block-btn {
+  padding: 5px 10px;
+  background: #ef4444;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.block-btn:hover {
+  background: #dc2626;
 }
