@@ -5,6 +5,7 @@ import Doctor from "./pages/Doctor";
 import Patient from "./pages/Patient";
 import Admin from "./pages/Admin";
 import Pharmacist from "./pages/Pharmacist";
+import Register from "./pages/Register";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/patient" element={<Patient />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/pharmacist" element={<Pharmacist />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );
