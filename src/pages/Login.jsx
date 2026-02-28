@@ -1,16 +1,16 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";   // ✅ Import Login CSS
 
 function Login() {
   const navigate = useNavigate();
 
-  const [role, setRole] = useState("");
-  const [loginType, setLoginType] = useState("email"); // email or phone
+  const [loginType, setLoginType] = useState("email");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [role, setRole] = useState("");
 
   const handleLogin = () => {
     if (!role) {
@@ -19,31 +19,50 @@ function Login() {
     }
 
     if (loginType === "email") {
-      if (!email || !password) {
-        alert("Please enter email and password");
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        alert("Enter valid email");
         return;
       }
-    } else {
-      if (!phone || !otp) {
-        alert("Please enter phone and OTP");
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters");
         return;
       }
     }
 
-    // Role-based navigation
-    if (role === "doctor") navigate("/doctor");
-    else if (role === "patient") navigate("/patient");
-    else if (role === "admin") navigate("/admin");
-    else if (role === "pharmacist") navigate("/pharmacist");
+    if (loginType === "phone") {
+      const phonePattern = /^[0-9]{10}$/;
+
+      if (!phonePattern.test(phone)) {
+        alert("Phone must be 10 digits");
+        return;
+      }
+
+      if (otp.length !== 6) {
+        alert("OTP must be 6 digits");
+        return;
+      }
+    }
+
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("role", role);
+
+    navigate(`/${role}`);
   };
 
   return (
-    <div className="login">
-      <div className="login-box">
-        <h2>Online Medical System Login</h2>
+    <div className="login-page">
+      <div className="login-card">
+        <h2>Welcome Back 👋</h2>
+        <p className="subtitle">Login to continue</p>
 
-        {/* Role Selection */}
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
+        <select
+          className="input-field"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+        >
           <option value="">Select Role</option>
           <option value="doctor">Doctor</option>
           <option value="patient">Patient</option>
@@ -51,55 +70,47 @@ function Login() {
           <option value="pharmacist">Pharmacist</option>
         </select>
 
-        {/* Login Type Toggle */}
         <div className="login-toggle">
           <button
             className={loginType === "email" ? "active" : ""}
             onClick={() => setLoginType("email")}
           >
-            Email Login
+            Email
           </button>
           <button
             className={loginType === "phone" ? "active" : ""}
             onClick={() => setLoginType("phone")}
           >
-            Phone Login
+            Phone
           </button>
         </div>
 
-        {/* Email Login */}
         {loginType === "email" && (
           <>
             <input
               type="email"
               placeholder="Enter Email"
+              className="input-field"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <div className="password-field">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <span
-                className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </span>
-            </div>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="input-field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </>
         )}
 
-        {/* Phone Login */}
         {loginType === "phone" && (
           <>
             <input
-              type="tel"
+              type="text"
               placeholder="Enter Phone Number"
+              className="input-field"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
@@ -107,19 +118,16 @@ function Login() {
             <input
               type="text"
               placeholder="Enter OTP"
+              className="input-field"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
             />
-
-            <button className="otp-btn">Send OTP</button>
           </>
         )}
 
-        <button className="login-btn" onClick={handleLogin}>
+        <button className="login-button" onClick={handleLogin}>
           Login
         </button>
-
-        <p className="forgot">Forgot Password?</p>
       </div>
     </div>
   );
