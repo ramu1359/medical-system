@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Login.css";   // ✅ Import Login CSS
+import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -102,6 +102,10 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            <p className="forgot-password">
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </p>
           </>
         )}
 
@@ -128,6 +132,10 @@ function Login() {
         <button className="login-button" onClick={handleLogin}>
           Login
         </button>
+
+        <p className="register-link">
+          Don’t have an account? <Link to="/register">Register</Link>
+        </p>
       </div>
     </div>
   );

@@ -740,3 +740,106 @@ button {
 .role-select:focus {
   border-color: #4e73df;
 }
+/* ===== Login Page Styling ===== */
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+}
+
+.login-card {
+  background: white;
+  padding: 35px;
+  width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card h2 {
+  text-align: center;
+  color: #4e73df;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.input-field {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #4e73df;
+}
+
+.login-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.login-toggle button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.login-toggle button.active {
+  background: #4e73df;
+  color: white;
+}
+
+.login-button {
+  background: #4e73df;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #2e59d9;
+}
+
+.forgot-password {
+  text-align: right;
+  font-size: 13px;
+  margin-top: -5px;
+}
+
+.forgot-password a {
+  color: #4e73df;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #4e73df;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
